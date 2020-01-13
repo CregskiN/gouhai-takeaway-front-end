@@ -1,15 +1,23 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
-import {Provider} from 'react-redux';
+
 
 import './App.css';
-import Header from './common/Header/index'
+import logo from './imgs/logo.jpg';
 
+import Header from './common/Header/index.jsx'
+import Order from './pages/Order/Order.jsx'
 
-function App() {
+function App(props) {
+
     return (
         <div className='App'>
-            <Header/>
+            <Header logo={logo}/>
+
+            <BrowserRouter>
+                <Route path='/' component={Order}/>
+            </BrowserRouter>
+
 
         </div>
     );

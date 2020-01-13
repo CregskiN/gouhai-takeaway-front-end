@@ -1,12 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {
+    HeaderWrapper,
+    Title,
+    SubTitle
+} from './index.js';
+
+
 const Header = function (props){
 
+    const {
+        logo
+    } = props;
+
     return (
-        <div>
-            这是头部
-        </div>
+        <HeaderWrapper>
+            <img className='logo' src={logo} alt=''/>
+
+            <Title>够嗨美食城</Title>
+            <SubTitle>· 外卖</SubTitle>
+        </HeaderWrapper>
     )
 };
 
