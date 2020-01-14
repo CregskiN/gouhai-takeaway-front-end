@@ -1,12 +1,13 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-import OrderList from '../../common/OrderList/OrderList.jsx';
-import MenuSelector from '../../common/MenuSelector/MenuSelector.jsx';
+import OrderItems from "./components/OrderList.jsx";
+import ShoppingCart from './components/ShoppingCart.jsx'
 import {
     OrderWrapper,
     MenuButtonWrapper,
-    MenuButton,
     OrderListWrapper,
+    ShoppingCartWrapper,
 } from './Order.js';
 
 /*
@@ -16,23 +17,142 @@ import {
 *       @TODO OrderListWrapper -> OrderItem
 * */
 
-const Order = function (){
-    console.log('Order组件渲染了！');
+const Order = function () {
+    console.log('Order页渲染了！');
+
+    const orderItems = [
+        {
+            id: 0,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 12,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 1,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 123,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 2,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 3,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 3,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 3,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 3,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 3,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 3,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 3,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 3,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        },
+        {
+            id: 3,
+            name: '鱼香肉丝',
+            description: '好吃不贵',
+            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
+            amount: 0,
+            current_price: 15,
+            original_price: 20,
+        }
+    ];
 
     return (
         <OrderWrapper>
 
+            {/* 菜单按钮 */}
             <MenuButtonWrapper>
-                <MenuButton />
+                <i className='iconfont ic'>&#xe601;</i>
             </MenuButtonWrapper>
 
+            {/* 设计思想：用户提供Wrapper，组件直接入内 */}
+
+            {/* 点餐列表 */}
             <OrderListWrapper>
-                <OrderList />
+                <OrderItems orderItems={orderItems}/>
             </OrderListWrapper>
 
+            {/* 购物车 */}
+            <ShoppingCartWrapper>
+                <ShoppingCart />
+            </ShoppingCartWrapper>
 
-            <MenuSelector />
-
+            {/* menu选择器 */}
+            {/*<MenuSelector />*/}
         </OrderWrapper>
     )
 };

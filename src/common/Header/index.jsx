@@ -9,6 +9,7 @@ import {
 
 
 const Header = function (props){
+    console.log('Header组件渲染了！');
 
     const {
         logo
