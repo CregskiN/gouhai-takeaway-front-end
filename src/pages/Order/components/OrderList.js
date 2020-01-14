@@ -43,7 +43,7 @@ const Text = styled.div`
         font-size: 15px;
         
         .icon_hot {
-            color: red;
+            color: #d81e06;
         }
     }
     

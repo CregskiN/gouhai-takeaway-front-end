@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import {
     HeaderWrapper,
@@ -8,7 +9,7 @@ import {
 } from './index.js';
 
 
-const Header = function (props){
+const Header = function (props) {
     console.log('Header组件渲染了！');
 
     const {
@@ -17,16 +18,18 @@ const Header = function (props){
 
     return (
         <HeaderWrapper>
-            <img className='logo' src={logo} alt=''/>
+            <Link to='/'>
+                <img className='logo' src={logo} alt=''/>
+            </Link>
 
             <Title>够嗨美食城</Title>
+
             <SubTitle>· 外卖</SubTitle>
+
         </HeaderWrapper>
     )
 };
 
-Header.propTypes = {
-
-};
+Header.propTypes = {};
 
 export default Header;

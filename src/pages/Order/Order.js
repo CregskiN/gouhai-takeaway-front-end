@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 // Order点单页面 容器
-const OrderWrapper = styled.div`
-    width: 100%;
+const OrderPageWrapper = styled.div`
+    width: 100vw;
     height: 91vh;
     display: flex;
     flex-direction: column;
@@ -34,12 +34,11 @@ const OrderListWrapper = styled.div`
 const ShoppingCartWrapper = styled.footer`
     width: 100%;
     height: 9%;
-    background-color: #f2f2f2;
 `;
 
 
 export {
-    OrderWrapper,
+    OrderPageWrapper,
     MenuButtonWrapper,
     OrderListWrapper,
     ShoppingCartWrapper,

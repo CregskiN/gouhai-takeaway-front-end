@@ -4,11 +4,14 @@ import {connect} from 'react-redux';
 import OrderItems from "./components/OrderList.jsx";
 import ShoppingCart from './components/ShoppingCart.jsx'
 import {
-    OrderWrapper,
+    OrderPageWrapper,
     MenuButtonWrapper,
     OrderListWrapper,
     ShoppingCartWrapper,
 } from './Order.js';
+import fastFoodIcon from '../../static/imgs/fastFoodIcon.png';
+import shoppingCartIcon from '../../static/imgs/shoppingCartIcon.png';
+
 
 /*
 * 粒度分析
@@ -58,7 +61,7 @@ const Order = function () {
             original_price: 20,
         },
         {
-            id: 3,
+            id: 4,
             name: '鱼香肉丝',
             description: '好吃不贵',
             imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
@@ -67,7 +70,7 @@ const Order = function () {
             original_price: 20,
         },
         {
-            id: 3,
+            id: 5,
             name: '鱼香肉丝',
             description: '好吃不贵',
             imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
@@ -76,7 +79,7 @@ const Order = function () {
             original_price: 20,
         },
         {
-            id: 3,
+            id: 6,
             name: '鱼香肉丝',
             description: '好吃不贵',
             imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
@@ -85,7 +88,7 @@ const Order = function () {
             original_price: 20,
         },
         {
-            id: 3,
+            id: 7,
             name: '鱼香肉丝',
             description: '好吃不贵',
             imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
@@ -94,7 +97,7 @@ const Order = function () {
             original_price: 20,
         },
         {
-            id: 3,
+            id: 8,
             name: '鱼香肉丝',
             description: '好吃不贵',
             imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
@@ -103,7 +106,7 @@ const Order = function () {
             original_price: 20,
         },
         {
-            id: 3,
+            id: 9,
             name: '鱼香肉丝',
             description: '好吃不贵',
             imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
@@ -112,7 +115,7 @@ const Order = function () {
             original_price: 20,
         },
         {
-            id: 3,
+            id: 10,
             name: '鱼香肉丝',
             description: '好吃不贵',
             imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
@@ -121,7 +124,7 @@ const Order = function () {
             original_price: 20,
         },
         {
-            id: 3,
+            id: 11,
             name: '鱼香肉丝',
             description: '好吃不贵',
             imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
@@ -131,8 +134,10 @@ const Order = function () {
         }
     ];
 
+    const total_price = 123;
+
     return (
-        <OrderWrapper>
+        <OrderPageWrapper>
 
             {/* 菜单按钮 */}
             <MenuButtonWrapper>
@@ -148,12 +153,15 @@ const Order = function () {
 
             {/* 购物车 */}
             <ShoppingCartWrapper>
-                <ShoppingCart />
+                <ShoppingCart totalPrice={total_price}
+                              fastFoodIcon={fastFoodIcon}
+                              shoppingCartIcon={shoppingCartIcon}
+                />
             </ShoppingCartWrapper>
 
             {/* menu选择器 */}
             {/*<MenuSelector />*/}
-        </OrderWrapper>
+        </OrderPageWrapper>
     )
 };
 

@@ -1,31 +1,32 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 
-
-import './App.css';
+// 全局静态资源部分
 import logo from './static/imgs/logo.jpg';
-
-import Header from './common/Header/index.jsx'
-import Order from './pages/Order/Order.jsx'
-
+import './App.css';
 import {GlobalIconFont} from './static/iconfont/iconfont.js';
 import {GlobalStyle} from './static/style.js';
+
+// Page 组件部分
+import Header from './common/Header/index.jsx'
+import Order from './pages/Order/Order.jsx'
+import Checkout from "./pages/Checkout/Checkout.jsx";
+
+
 
 function App(props) {
 
     return (
         <div className='App'>
 
-            <Header logo={logo}/>
-
             <BrowserRouter>
-                <Route path='/' component={Order}/>
-
-
+                <Header logo={logo}/>
+                <Route path='/' exact component={Order}/>
+                <Route path='/checkout' exact component={Checkout}/>
             </BrowserRouter>
 
-            <GlobalIconFont />
-            <GlobalStyle />
+            <GlobalIconFont/>
+            <GlobalStyle/>
         </div>
     );
 }
