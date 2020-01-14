@@ -46,8 +46,9 @@ const ListHeader = styled.header`
 // 列表内容
 const ListItemsWrapper = styled.div`
     width: 90%;
-    height: 80%;
+    height: 100%;
     overflow-y: scroll;
+    //padding: 0 5px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -57,7 +58,7 @@ const ListItemsWrapper = styled.div`
 // 单条内容
 const ListItem = styled.div`
     width: 100%;
-    height: 8vh;
+    height: 15vw;
     margin: 0 0 5px 0;
     box-shadow: #f2f2f2 0 0 10px; 
     display: flex;

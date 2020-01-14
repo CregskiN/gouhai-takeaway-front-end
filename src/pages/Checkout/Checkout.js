@@ -10,10 +10,12 @@ const CheckoutPageWrapper = styled.div`
 // 账单组件列表容器
 const ChecklistWrapper = styled.div``;
 
-
+// 底部结算栏
+const ChecklistBarWrapper = styled.div``;
 
 
 export {
     CheckoutPageWrapper,
     ChecklistWrapper,
+    ChecklistBarWrapper,
 }
