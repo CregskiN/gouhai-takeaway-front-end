@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const ChecklistWrapper = styled.div`
     width: 100%;
     height: 100%;
+
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -20,7 +21,7 @@ const MiddleLine = styled.div`
 // 列表头部
 const ListHeader = styled.header`
     width: 90%;
-    height: 5vh;
+    height: 8vh;
     margin: 10px 0 0 0;
     box-shadow: #f2f2f2 0 0 10px; 
     border-radius: 5%;
@@ -48,7 +49,6 @@ const ListItemsWrapper = styled.div`
     width: 90%;
     height: 100%;
     overflow-y: scroll;
-    //padding: 0 5px 0 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -58,23 +58,24 @@ const ListItemsWrapper = styled.div`
 // 单条内容
 const ListItem = styled.div`
     width: 100%;
-    height: 15vw;
-    margin: 0 0 5px 0;
+    height: 20vw;
+    padding: 15px 0 15px 0;
+    margin: 5px 0 0 0;
     box-shadow: #f2f2f2 0 0 10px; 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
     
-    .item_name{
+    .item_name {
         width: 32.5%;
     }
     
-    .item_summary{
+    .item_summary {
         width: 32.5%;
     }
     
-    .item_amount{
+    .item_amount {
         width: 35%;
     }
 `;

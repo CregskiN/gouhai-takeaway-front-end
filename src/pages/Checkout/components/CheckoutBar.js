@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-// ShoppingCart组件内容器
-const ShoppingCartWrapper = styled.div`
+// CheckoutBar 组件容器
+const CheckoutBarWrapper = styled.div`
     width: 100%;
     height: 100%;
     background-color: #f2f2f2;
@@ -20,7 +20,7 @@ const Left = styled.div`
     justify-content: flex-start;
     align-items: center;
     
-    .left_fastFoodIcon {
+    .left_motorcycleIcon {
         width: 12vw;
         height: 12vw;
         padding: 0 0 0 15px;
@@ -33,6 +33,7 @@ const Left = styled.div`
         padding: 0 10px 0 20px;
         font-size: 20px;
     }
+    
 `;
 
 // 中间割线
@@ -44,30 +45,21 @@ const MiddleLine = styled.div`
 
 // 右部分
 const Right = styled.div`
-    width: 22.5vw; // 此处包在Link内，需指定宽度撑起Link
+    width: 22.5%; // 此处包在Link内，需指定宽度撑起Link
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     
-    .right_link{
+    .right_link {
         text-decoration: none;
-    
-        .right_shoppingCartIcon {
-            width: 5vw;
-            height: 5vw;
-        }
-        
-        .right_checkout {
-            font-size: 12px;
-            color: #1890ff;
-        }
     }
+    
 `;
 
 export {
-    ShoppingCartWrapper,
+    CheckoutBarWrapper,
     Left,
     MiddleLine,
     Right

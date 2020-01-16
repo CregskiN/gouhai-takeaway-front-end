@@ -1,14 +1,16 @@
 import React from 'react';
 
-
 import Checklist from "./components/Checklist.jsx";
-import ChecklistBar from "./components/ChecklistBar.jsx";
+import CheckoutBar from "./components/CheckoutBar.jsx";
+import CustomerInfo from './components/CustomerInfo.jsx'
 import {
     CheckoutPageWrapper,
     ChecklistWrapper,
-    ChecklistBarWrapper,
+    CheckoutBarWrapper,
+    CustomerInfoWrapper
 } from "./Checkout.js";
 
+import motorcycleIcon from '../../static/imgs/motorcycleIcon.png';
 
 const Checkout = function () {
 
@@ -119,6 +121,8 @@ const Checkout = function () {
 
     ]
 
+    const total_price = 100;
+
     return (
         <CheckoutPageWrapper>
 
@@ -126,9 +130,14 @@ const Checkout = function () {
                 <Checklist checklist={checklist}/>
             </ChecklistWrapper>
 
-            <ChecklistBarWrapper>
-                <ChecklistBar/>
-            </ChecklistBarWrapper>
+            <CustomerInfoWrapper>
+                <CustomerInfo/>
+            </CustomerInfoWrapper>
+
+            <CheckoutBarWrapper>
+                <CheckoutBar motorcycleIcon={motorcycleIcon} totalPrice={total_price}/>
+            </CheckoutBarWrapper>
+
         </CheckoutPageWrapper>
     )
 };

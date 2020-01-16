@@ -10,30 +10,6 @@ import {
     Button,
 } from './OrderList.js';
 
-// 列表容器
-const OrderItems = memo(function (props) {
-    console.log('OrderList组件渲染了！');
-
-    const {
-        orderItems,
-    } = props;
-
-    return (
-        <OrderListWrapper>
-            {
-                orderItems.map((orderItem, index) => {
-                    return <OrderItem key={orderItem.id} orderItem={orderItem}/>;
-                })
-            }
-        </OrderListWrapper>
-    )
-});
-
-OrderItems.propTypes = {
-    orderItems: PropTypes.array.isRequired,
-};
-
-
 // 单条餐品
 const OrderItem = memo(function (props) {
     const {
@@ -69,6 +45,30 @@ const OrderItem = memo(function (props) {
 
 OrderItem.propTypes = {
     orderItem: PropTypes.object.isRequired
+};
+
+
+// 列表容器
+const OrderItems = memo(function (props) {
+    console.log('OrderList组件渲染了！');
+
+    const {
+        orderItems,
+    } = props;
+
+    return (
+        <OrderListWrapper>
+            {
+                orderItems.map((orderItem, index) => {
+                    return <OrderItem key={orderItem.id} orderItem={orderItem}/>;
+                })
+            }
+        </OrderListWrapper>
+    )
+});
+
+OrderItems.propTypes = {
+    orderItems: PropTypes.array.isRequired,
 };
 
 

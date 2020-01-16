@@ -26,12 +26,12 @@ const ShoppingCart = function (props) {
 
             <MiddleLine/>
 
-            <Link to='/checkout'>
-                <Right>
+            <Right>
+                <Link className='right_link' to='/checkout'>
                     <img className='right_shoppingCartIcon' src={shoppingCartIcon} alt='shoppingCartIcon.png'/>
                     <div className='right_checkout'>选好了<br/>checkout></div>
-                </Right>
-            </Link>
+                </Link>
+            </Right>
         </ShoppingCartWrapper>
     )
 };

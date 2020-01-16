@@ -23,10 +23,11 @@ function App(props) {
                 <Header logo={logo}/>
                 <Route path='/' exact component={Order}/>
                 <Route path='/checkout' exact component={Checkout}/>
+                <GlobalIconFont/>
+                <GlobalStyle/>
             </BrowserRouter>
 
-            <GlobalIconFont/>
-            <GlobalStyle/>
+
         </div>
     );
 }

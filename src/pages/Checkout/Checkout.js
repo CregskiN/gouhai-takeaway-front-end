@@ -8,14 +8,27 @@ const CheckoutPageWrapper = styled.div`
 
 
 // 账单组件列表容器
-const ChecklistWrapper = styled.div``;
+const ChecklistWrapper = styled.div`
+    width: 100%;
+    height: 50%
+`;
+
+// 顾客信息填写
+const CustomerInfoWrapper = styled.div`
+    width: 100%;
+    height: 41%;
+`;
 
 // 底部结算栏
-const ChecklistBarWrapper = styled.div``;
+const CheckoutBarWrapper = styled.footer`
+    width: 100%;
+    height: 9%;
+`;
 
 
 export {
     CheckoutPageWrapper,
     ChecklistWrapper,
-    ChecklistBarWrapper,
+    CheckoutBarWrapper,
+    CustomerInfoWrapper
 }
