@@ -26,19 +26,21 @@ const OrderItemWrapper = styled.div`
 // 单条餐品 内 img部分
 const Img = styled.img`
     width: 26%;
+    height: 100%;
     border-radius: 5px;
 `;
 
 // 单条餐品 内 text部分
 const Text = styled.div`
     width: 59%;
+    height: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
     
-    .orderItem_name{
+    .orderItem_name {
         font-size: 15px;
         
         .icon_hot {
@@ -46,7 +48,7 @@ const Text = styled.div`
         }
     }
     
-    .orderItem_description{
+    .orderItem_description {
         font-size: 13px;
     }
 
@@ -62,33 +64,11 @@ const Text = styled.div`
 `;
 
 
-// 单条餐品 内 加减按钮部分
-const Button = styled.div`
+// 单条餐品 内 加减按钮部分容器
+const IncAndDecButtonWrapper = styled.div`
     width: 25%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    
-    // +按钮
-    .icon_add{
-        //font-size: 18px;
-        display: block;
-    }
-    .orderItem_amount{
-        display: block;
-        background-color: #f2f2f2;
-        padding: 1px 5px;
-        border-radius: 10%;
-    }
-    // -按钮
-    .icon_dec{
-        //font-size: 18px;
-        display: block;
-    }
-    
+    height: 100%;
 `;
-
 
 
 export {
@@ -96,5 +76,5 @@ export {
     OrderItemWrapper,
     Img,
     Text,
-    Button,
+    IncAndDecButtonWrapper,
 }

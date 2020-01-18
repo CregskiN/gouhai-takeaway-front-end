@@ -7,13 +7,16 @@ import {
     OrderItemWrapper,
     Img,
     Text,
-    Button,
+    IncAndDecButtonWrapper
 } from './OrderList.js';
+
+import IncAndDecButton from "../../../common/IncAndDec/IncAndDecButton.jsx";
 
 // 单条餐品
 const OrderItem = memo(function (props) {
     const {
-        orderItem
+        orderItem,
+        inc
     } = props;
 
     return (
@@ -33,11 +36,9 @@ const OrderItem = memo(function (props) {
                 </div>
             </Text>
 
-            <Button>
-                <i className='iconfont icon_dec'>&#xe604;</i>
-                <span className='orderItem_amount'>{orderItem.amount}</span>
-                <i className='iconfont icon_add'>&#xe605;</i>
-            </Button>
+            <IncAndDecButtonWrapper>
+                    <IncAndDecButton inc={inc} amount={orderItem.amount}/>
+            </IncAndDecButtonWrapper>
 
         </OrderItemWrapper>
     );
@@ -54,13 +55,14 @@ const OrderItems = memo(function (props) {
 
     const {
         orderItems,
+        inc
     } = props;
 
     return (
         <OrderListWrapper>
             {
                 orderItems.map((orderItem, index) => {
-                    return <OrderItem key={orderItem.id} orderItem={orderItem}/>;
+                    return <OrderItem key={orderItem.id} inc={inc} orderItem={orderItem}/>;
                 })
             }
         </OrderListWrapper>

@@ -1,5 +1,4 @@
-import React from 'react';
-import {connect} from 'react-redux';
+import React, {useState, useCallback} from 'react';
 
 import OrderItems from "./components/OrderList.jsx";
 import ShoppingCart from './components/ShoppingCart.jsx'
@@ -23,8 +22,8 @@ import shoppingCartIcon from '../../static/imgs/shoppingCartIcon.png';
 const Order = function () {
     console.log('Order页渲染了！');
 
-    const orderItems = [
-        {
+    const [orderItems, setOrderItems] = useState(
+        [{
             id: 0,
             name: '鱼香肉丝',
             description: '好吃不贵',
@@ -32,109 +31,23 @@ const Order = function () {
             amount: 12,
             current_price: 15,
             original_price: 20,
-        },
-        {
-            id: 1,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 123,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 2,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 3,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 4,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 5,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 6,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 7,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 8,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 9,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 10,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
-        },
-        {
-            id: 11,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 0,
-            current_price: 15,
-            original_price: 20,
         }
-    ];
+    ]);
 
     const total_price = 123;
+
+    console.log(orderItems);
+
+    const add = (Items) => {
+        for(let value in Items){
+            Items[value].amount ++;
+        }
+    };
+
+    const handleIncAmount = useCallback((id) => {
+         setOrderItems(add())
+    },[]);
+
 
     return (
         <OrderPageWrapper>
@@ -148,7 +61,11 @@ const Order = function () {
 
             {/* 点餐列表 */}
             <OrderListWrapper>
-                <OrderItems orderItems={orderItems}/>
+                <OrderItems orderItems={orderItems}
+                            inc={handleIncAmount}
+                            // dec={}
+
+                />
             </OrderListWrapper>
 
             {/* 购物车 */}
