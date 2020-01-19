@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
@@ -9,7 +9,8 @@ import {
     Right
 } from './ShoppingCart.js'
 
-const ShoppingCart = function (props) {
+const ShoppingCart = memo(function (props) {
+    console.log('ShoppingCart 组件渲染了！');
 
     const {
         fastFoodIcon,
@@ -34,7 +35,7 @@ const ShoppingCart = function (props) {
             </Right>
         </ShoppingCartWrapper>
     )
-};
+});
 
 ShoppingCart.propTypes = {
     fastFoodIcon: PropTypes.string.isRequired,

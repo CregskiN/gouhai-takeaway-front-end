@@ -12,8 +12,6 @@ const IncAndDecButton = memo(function (props){
         inc
     } = props;
 
-    console.log(inc)
-
     return (
         <IncAndDecButtonWrapper>
             <i className='iconfont icon_dec'>&#xe604;</i>

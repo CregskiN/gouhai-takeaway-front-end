@@ -13,7 +13,7 @@ const CheckoutPageWrapper = styled.div`
 
 // 账单组件列表容器
 const ChecklistWrapper = styled.div`
-    width: 100%;
+    width: 98%;
     height: 50%
 `;
 

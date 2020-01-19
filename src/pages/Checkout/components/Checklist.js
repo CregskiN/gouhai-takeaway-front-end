@@ -4,11 +4,11 @@ import styled from 'styled-components';
 const ChecklistWrapper = styled.div`
     width: 100%;
     height: 100%;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    box-shadow: #f2f2f2 0 0 10px; 
 `;
 
 // 中间割线
@@ -58,7 +58,7 @@ const ListItemsWrapper = styled.div`
 // 单条内容
 const ListItem = styled.div`
     width: 100%;
-    height: 20vw;
+    height: 20px;
     padding: 15px 0 15px 0;
     margin: 5px 0 0 0;
     box-shadow: #f2f2f2 0 0 10px; 

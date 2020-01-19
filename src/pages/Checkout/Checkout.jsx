@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 
 import Checklist from "./components/Checklist.jsx";
 import CheckoutBar from "./components/CheckoutBar.jsx";
@@ -13,113 +13,25 @@ import {
 import motorcycleIcon from '../../static/imgs/motorcycleIcon.png';
 
 const Checkout = function () {
+    console.log('Checkout页渲染了！');
 
-    const checklist = [
-        {
-            id: 0,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 1,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 2,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 3,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 4,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 5,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 6,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 7,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 8,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 9,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 10,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 11,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 12,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 13,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 14,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 15,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }, {
-            id: 16,
-            name: '鱼香肉丝',
-            price: 15,
-            amount: 10,
-            summary: 150,
-        }
+    const [checklist, setChecklist] = useState([{
+        id: 0,
+        name: '鱼香肉丝',
+        price: 15,
+        amount: 10,
+        summary: 150,
+    }]);
 
-    ]
+    // 增加
+    const addAmount = useCallback(() => {
+        setChecklist([
+            {
+                ...checklist[0],
+                amount: checklist[0].amount + 1
+            }
+        ])
+    }, [checklist]);
 
     const total_price = 100;
 
@@ -127,7 +39,7 @@ const Checkout = function () {
         <CheckoutPageWrapper>
 
             <ChecklistWrapper>
-                <Checklist checklist={checklist}/>
+                <Checklist checklist={checklist} inc={addAmount}/>
             </ChecklistWrapper>
 
             <CustomerInfoWrapper>

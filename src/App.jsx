@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 
+
 // 全局静态资源部分
 import logo from './static/imgs/logo.jpg';
 import './App.css';
@@ -14,7 +15,7 @@ import Checkout from "./pages/Checkout/Checkout.jsx";
 
 
 
-function App(props) {
+function App() {
 
     return (
         <div className='App'>

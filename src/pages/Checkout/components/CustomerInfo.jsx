@@ -24,7 +24,7 @@ const CustomerInfo = function (props) {
                 <i className='iconfont'>&#xe610;</i>
                 <Input className='customer_phoneNumber'
                        type='text'
-                       maxLength='11'
+                       maxLength={11}
                        placeholder='收货人手机号'/>
             </div>
         </CustomerInfoWrapper>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -9,38 +9,45 @@ import {
     ListItem as Item
 } from './Checklist.js'
 
+import IncAndDecButton from "../../../common/IncAndDec/IncAndDecButton.jsx";
 
 
 // item
-const ListItem = (props) => {
+const ListItem = memo(function (props) {
     const {
         name,
         amount,
-        summary
-    } = props.item;
-
-    return (
-        <Item>
-            <div className='item_name'><div>{name}</div></div>
-            <div className='item_summary'>￥{summary.toFixed(2)}</div>
-            <div className='item_amount'>{amount}</div>
-        </Item>
-    )
-};
-
-
-// items
-const ListItems = function (props) {
-    const {
-        items
+        summary,
+        inc
     } = props;
 
     return (
-        items.map((item, index) => {
-            return <ListItem className='ListItem_item' item={item} key={item.id}/>
+        <Item>
+            <div className='item_name'>
+                <div>{name}</div>
+            </div>
+            <div className='item_summary'>￥{summary.toFixed(2)}</div>
+            <div className='item_amount'>
+                <IncAndDecButton amount={amount} inc={inc}/>
+            </div>
+        </Item>
+    )
+});
+
+
+// items
+const ListItems = memo(function (props) {
+    const {
+        items,
+        inc
+    } = props;
+
+    return (
+        items.map((item) => {
+            return <ListItem className='ListItem_item' name={item.name} amount={item.amount} summary={item.summary} key={item.id} inc={inc}/>
         })
     )
-};
+});
 
 ListItems.prototype = {
     items: PropTypes.object.isRequired
@@ -48,29 +55,30 @@ ListItems.prototype = {
 
 
 // 列表 = 头部 + items
-const Checklist = function (props) {
+const Checklist = memo(function (props) {
     console.log('CheckoutList组件渲染了！');
 
     const {
-        checklist
+        checklist,
+        inc
     } = props;
 
     return (
         <ChecklistWrapper>
             <ListHeader>
                 <div className='header_name'>菜品</div>
-                <MiddleLine />
+                <MiddleLine/>
                 <div className='header_summary'>价格</div>
-                <MiddleLine />
+                <MiddleLine/>
                 <div className='header_amount'>份数</div>
             </ListHeader>
 
             <ListItemsWrapper>
-                <ListItems items={checklist}/>
+                <ListItems items={checklist} inc={inc}/>
             </ListItemsWrapper>
         </ChecklistWrapper>
     )
-};
+});
 
 Checklist.propTypes = {
     checklist: PropTypes.array.isRequired

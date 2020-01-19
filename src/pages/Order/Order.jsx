@@ -1,4 +1,5 @@
-import React, {useState, useCallback} from 'react';
+import React, { useCallback } from 'react';
+import { useSelector , shallowEqual} from "react-redux";
 
 import OrderItems from "./components/OrderList.jsx";
 import ShoppingCart from './components/ShoppingCart.jsx'
@@ -16,37 +17,27 @@ import shoppingCartIcon from '../../static/imgs/shoppingCartIcon.png';
 * 粒度分析
 * 一级：Order页面组件
 * 二级：@TODO MenuButtonWrapper -> MenuButton
-*       @TODO OrderListWrapper -> OrderItem
 * */
 
 const Order = function () {
     console.log('Order页渲染了！');
 
-    const [orderItems, setOrderItems] = useState(
-        [{
-            id: 0,
-            name: '鱼香肉丝',
-            description: '好吃不贵',
-            imgUrl: 'http://hxsmallgame.cn/caidanimg/luroufan.jpg',
-            amount: 12,
-            current_price: 15,
-            original_price: 20,
-        }
-    ]);
-
     const total_price = 123;
 
-    console.log(orderItems);
+    const orderItems = useSelector((state) => {
+        return state.order.orderItems;
+    },shallowEqual);
 
-    const add = (Items) => {
-        for(let value in Items){
-            Items[value].amount ++;
-        }
-    };
+    // console.log(orderItems);
 
-    const handleIncAmount = useCallback((id) => {
-         setOrderItems(add())
-    },[]);
+
+
+    // IncAndDecButton 中 inc 函数
+    const addAmount = useCallback(() => {
+        console.log('+1');
+    }, []);
+
+
 
 
     return (
@@ -62,8 +53,8 @@ const Order = function () {
             {/* 点餐列表 */}
             <OrderListWrapper>
                 <OrderItems orderItems={orderItems}
-                            inc={handleIncAmount}
-                            // dec={}
+                            inc={addAmount}
+                    // dec={}
 
                 />
             </OrderListWrapper>
