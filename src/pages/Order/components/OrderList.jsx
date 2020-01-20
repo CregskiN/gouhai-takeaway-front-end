@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React, {memo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 
 
@@ -11,6 +11,7 @@ import {
 } from './OrderList.js';
 
 import IncAndDecButton from "../../../common/IncAndDec/IncAndDecButton.jsx";
+import {shallowEqual, useDispatch, useSelector} from "react-redux";
 
 // 单条餐品
 const OrderItem = memo(function (props) {
@@ -53,16 +54,31 @@ OrderItem.propTypes = {
 const OrderItems = memo(function (props) {
     console.log('OrderList组件渲染了！');
 
-    const {
-        orderItems,
-        inc
-    } = props;
+    // useSelector 获取数据
+    const orderItemsObj = useSelector((state) => {
+        return state.order.getIn(['orderItems']).toJS();
+    },shallowEqual);
+
+    // useDispatch 获取redux中dispatch
+    const dispatch = useDispatch();
+
+    // action
+    const addAmountActionCreator = () => {
+        return {
+            type: 'inc'
+        }
+    };
+
+    // 封装： IncAndDecButton 中 inc 函数
+    const addAmount = useCallback(() => {
+        dispatch(addAmountActionCreator());
+    },[dispatch]);
 
     return (
         <OrderListWrapper>
             {
-                orderItems.map((orderItem, index) => {
-                    return <OrderItem key={orderItem.id} inc={inc} orderItem={orderItem}/>;
+                orderItemsObj.map((orderItem, index) => {
+                    return <OrderItem key={orderItem.id} inc={addAmount} orderItem={orderItem}/>;
                 })
             }
         </OrderListWrapper>
@@ -70,7 +86,7 @@ const OrderItems = memo(function (props) {
 });
 
 OrderItems.propTypes = {
-    orderItems: PropTypes.array.isRequired,
+    // orderItems: PropTypes.array.isRequired,
 };
 
 

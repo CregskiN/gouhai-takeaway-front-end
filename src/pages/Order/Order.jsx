@@ -1,5 +1,4 @@
-import React, { useCallback } from 'react';
-import { useSelector , shallowEqual} from "react-redux";
+import React from 'react';
 
 import OrderItems from "./components/OrderList.jsx";
 import ShoppingCart from './components/ShoppingCart.jsx'
@@ -22,22 +21,6 @@ import shoppingCartIcon from '../../static/imgs/shoppingCartIcon.png';
 const Order = function () {
     console.log('Order页渲染了！');
 
-    const total_price = 123;
-
-    const orderItems = useSelector((state) => {
-        return state.order.orderItems;
-    },shallowEqual);
-
-    // console.log(orderItems);
-
-
-
-    // IncAndDecButton 中 inc 函数
-    const addAmount = useCallback(() => {
-        console.log('+1');
-    }, []);
-
-
 
 
     return (
@@ -52,17 +35,12 @@ const Order = function () {
 
             {/* 点餐列表 */}
             <OrderListWrapper>
-                <OrderItems orderItems={orderItems}
-                            inc={addAmount}
-                    // dec={}
-
-                />
+                <OrderItems/>
             </OrderListWrapper>
 
             {/* 购物车 */}
             <ShoppingCartWrapper>
-                <ShoppingCart totalPrice={total_price}
-                              fastFoodIcon={fastFoodIcon}
+                <ShoppingCart fastFoodIcon={fastFoodIcon}
                               shoppingCartIcon={shoppingCartIcon}
                 />
             </ShoppingCartWrapper>

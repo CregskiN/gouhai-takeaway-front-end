@@ -7,7 +7,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     reducers,
     composeEnhancers(
-        applyMiddleware(thunk)
+        applyMiddleware(thunk) // 处理异步action 如setTimeout
     )
 );
 

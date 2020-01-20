@@ -8,6 +8,7 @@ import {
     MiddleLine,
     Right
 } from './ShoppingCart.js'
+import {useSelector} from "react-redux";
 
 const ShoppingCart = memo(function (props) {
     console.log('ShoppingCart 组件渲染了！');
@@ -15,8 +16,11 @@ const ShoppingCart = memo(function (props) {
     const {
         fastFoodIcon,
         shoppingCartIcon,
-        totalPrice,
     } = props;
+
+    const totalPrice = useSelector((state) => {
+        return state.order.getIn(['totalPrice']);
+    });
 
     return (
         <ShoppingCartWrapper>
@@ -40,7 +44,7 @@ const ShoppingCart = memo(function (props) {
 ShoppingCart.propTypes = {
     fastFoodIcon: PropTypes.string.isRequired,
     shoppingCartIcon: PropTypes.string.isRequired,
-    totalPrice: PropTypes.number.isRequired
+
 };
 
 export default ShoppingCart;
