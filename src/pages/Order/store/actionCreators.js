@@ -1,17 +1,25 @@
 import axios from 'axios';
 
 
-const fetchFoodData = () => {
-    
-};
 
-
+// action: 增加选中菜品
 const incFood = () => {
 
 };
 
+const fetchFoodData = () => {
+    return (dispatch) => {
+        axios.get('/').then((res) => {
+            if(!res){
 
-export {  
+            }
+        })
+    }
+};
+
+
+
+export {
+    incFood,
     fetchFoodData,
-    incFood
 }
